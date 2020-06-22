@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import Usuario from '../components/usuario';
+import {
+    Text,
+    View,
+    FlatList,
+} from 'react-native';
+import * as usuariosActions from '../../actions/usuariosActions';
+import { connect } from 'react-redux';
+
 
 class UsuarioList extends Component {
+    async componentDidMount(){
+        await this.props.obtenerUsuarios();
+        console.log("Se tuvieron datos", this.props.listado_usuarios);
+    };
     render() {
         return (
-            <View>
-                <Usuario
-                    nombre={"Pablo César"} />
-            </View>
+            <>
+               <Text>Hola Mundo</Text>
+            </>
         );
-    }
+    } 
 }
 
-export default UsuarioList;
+const mapStateToProps = (reducers) => {
+    return{
+        listado_usuarios: reducers.usuariosReducer.list,
+    };
+}
+export default connect(mapStateToProps, usuariosActions)(UsuarioList);

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Provider} from 'react-redux';
+import { Provider } from 'react-redux';
 
 import {
   SafeAreaView,
@@ -10,14 +10,15 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {store} from './src/store';
+import { store } from './src/store';
+import UsuariosList from './src/usuarios/containers/usuarios-list'
 
 
 const App: () => React$Node = () => {
   return (
-     <Provider store={store}>
-       <Text>Hola mundo</Text>
-     </Provider>
+    <Provider store={store}>
+      <UsuariosList/>
+    </Provider>
   );
 };
 
@@ -35,13 +36,13 @@ const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
-  }, 
+  },
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
     //color: Colors.black,
   },
-  sectionDescription:  {
+  sectionDescription: {
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
