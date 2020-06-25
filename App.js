@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 
 import {
   SafeAreaView,
@@ -10,14 +10,14 @@ import {
   StatusBar,
 } from 'react-native';
 
-import { store } from './src/store';
-import UsuariosList from './src/usuarios/containers/usuarios-list'
-
+import {store} from './src/store';
+//import UsuariosList from './src/usuarios/containers/usuarios-list'
+import AppNavigator from './src/app-navigator';
 
 const App: () => React$Node = () => {
   return (
     <Provider store={store}>
-      <UsuariosList/>
+      <AppNavigator />
     </Provider>
   );
 };
